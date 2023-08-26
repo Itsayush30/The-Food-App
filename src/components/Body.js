@@ -83,7 +83,7 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-container">
+      <div className="w-24 flex m-6 bg-green-200">
         <input
           type="text"
           className="search-input"
@@ -93,7 +93,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button
-          className="search-btn"
+          className="m-4 bg-green-600 hover:bg-green-500 rounded-md"
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allRestaurants);
@@ -108,7 +108,7 @@ const Body = () => {
       {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="restaurant-list">
+        <div className=" flex flex-wrap">
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
           {filteredRestaurants.map((restaurant) => {
             return (
