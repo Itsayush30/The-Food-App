@@ -4,14 +4,8 @@ import Shimmer from "./Shimmer"; /* This is default export */
 import { swiggy_api_URL } from "../contants";
 import { useOutlet } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { filterData } from "../utils/helper";
 
-// Filter the restaurant data according input type
-function filterData(searchText, restaurants) {
-  const resFilterData = restaurants.filter((restaurant) =>
-    restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return resFilterData;
-}
 
 // Body Component for body section: It contain all restaurant cards
 const Body = () => {

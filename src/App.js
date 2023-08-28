@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Contact from "./components/Contact";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, Form } from "react-router-dom";
+import Shimmer from "./components/Shimmer";
+
+const InstaMart = lazy(()=> import("./components/InstaMart"));
+const About = lazy(()=> import("./components/About"));
 
 /* 
   Header
@@ -47,7 +50,9 @@ const approuter = createBrowserRouter([
     children: [
       {
         path: "/about",
-        element: <About />,
+        element: (<Suspense fallback={<h1>"Loading..."</h1>}>
+        <About/>
+      </Suspense>),
       },
       {
         path: "/restaurant/:id",
@@ -60,6 +65,12 @@ const approuter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/Instamart",
+        element: (<Suspense fallback={<h1>"Loading..."</h1>}>
+          <InstaMart/>
+        </Suspense>),
       },
     ],
   },

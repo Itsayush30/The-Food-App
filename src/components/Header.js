@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
 
+
 const Title = () => (
     <a href="/">
       <img
@@ -37,6 +38,9 @@ const Title = () => (
            </li>
            <li className="p-6">  
               Cart</li>
+              <li className="p-6">  
+            <Link to= "/Instamart">Instamart</Link>
+           </li>
           </ul>
         </div>
         <h1>{isOnline ? " ✅" : " 🥲 => 🔴"}</h1>
