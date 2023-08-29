@@ -1,3 +1,6 @@
+import { Outlet } from "react-router-dom";
+import Profile from "./Profile";
+
 const About = () => {
     return (
         <div>
@@ -6,6 +9,7 @@ const About = () => {
                 {" "}
                 "Discover delicious dishes at unbeatable prices. Order online now!"
             </p>
+            <Outlet/>
         </div>
     );
 };

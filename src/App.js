@@ -7,7 +7,7 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet, Form } from "react-router-dom";
-import Shimmer from "./components/Shimmer";
+import Profile from "./components/Profile";
 
 const InstaMart = lazy(()=> import("./components/InstaMart"));
 const About = lazy(()=> import("./components/About"));
@@ -53,6 +53,12 @@ const approuter = createBrowserRouter([
         element: (<Suspense fallback={<h1>"Loading..."</h1>}>
         <About/>
       </Suspense>),
+        children:[{
+          path:"profile", // parentpath/{path}
+          element:<Profile/>
+        }
+
+        ]
       },
       {
         path: "/restaurant/:id",
