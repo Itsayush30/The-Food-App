@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,7 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet, Form } from "react-router-dom";
 import Profile from "./components/Profile";
+import UserContext from "./utils/UserContext";
 
 const InstaMart = lazy(()=> import("./components/InstaMart"));
 const About = lazy(()=> import("./components/About"));
@@ -33,11 +34,22 @@ const About = lazy(()=> import("./components/About"));
 
 // AppLayout component to show: Header, Body, Footer
 const AppLayout = () => {
+  const [User, setUser] = useState({
+    name : "Ayush Gupta",
+    email : "itsyaush30@gmail.com"
+  });
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+     <UserContext.Provider
+        value={{
+          user: User,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
     </>
   );
 };
