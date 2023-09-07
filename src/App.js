@@ -9,6 +9,9 @@ import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet, Form } from "react-router-dom";
 import Profile from "./components/Profile";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/Store";
+import Cart from "./components/Cart";
 
 const InstaMart = lazy(()=> import("./components/InstaMart"));
 const About = lazy(()=> import("./components/About"));
@@ -39,7 +42,7 @@ const AppLayout = () => {
     email : "itsyaush30@gmail.com"
   });
   return (
-    <>
+    <Provider store = {store}>
      <UserContext.Provider
         value={{
           user: User,
@@ -50,7 +53,7 @@ const AppLayout = () => {
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
@@ -83,6 +86,10 @@ const approuter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       },
       {
         path: "/Instamart",

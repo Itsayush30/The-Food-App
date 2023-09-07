@@ -2,8 +2,7 @@ import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
-
-
+import { useSelector } from "react-redux";
 
 const Title = () => (
     <a href="/">
@@ -23,25 +22,30 @@ const Title = () => (
 
     const {user} = useContext(UserContext);
 
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
+
+
     return (
       <div className="flex items-center justify-between bg-green-600">
         <Title />
         <div className="nav-items">
-          <ul className="flex py-11 w-3/4 font-semibold ">
+          <ul className="flex py-11 font-semibold ">
            
-            <li className="p-6"> 
+            <li className="px-6"> 
             <Link to= "/">Home</Link>
            </li>
-           <li className="p-6">  
+           <li className="px-6">  
             <Link to= "/about">About</Link>
             </li>
-            <li className="p-6">  
+            <li className="px-6">  
             <Link to= "/contact">Contact</Link>
            </li>
-           <li className="p-6">  
-              Cart</li>
-              <li className="p-6">  
+              <li className="px-6">  
             <Link to= "/Instamart">Instamart</Link>
+           </li>
+           <li className="px-6">  
+            <Link to= "/Cart">Cart- {cartItems.length} items</Link>
            </li>
           </ul>
         </div>
