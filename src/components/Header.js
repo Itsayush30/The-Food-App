@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const Title = () => (
     <a href="/">
-      <img
+      <img data-testid="logo"
         className= "flex h-28 p-2 items-center"
         alt="Logo"
         src="https://images-platform.99static.com//U4hUSEXZ4IVHPuxQtNVYMxi81xw=/0x1:1000x1001/fit-in/500x500/99designs-contests-attachments/78/78942/attachment_78942547"
@@ -30,7 +30,7 @@ const Title = () => (
       <div className="flex items-center justify-between bg-green-600">
         <Title />
         <div className="nav-items">
-          <ul className="flex py-11 font-semibold ">
+          <ul className="flex py-11 font-semibold">
            
             <li className="px-6"> 
             <Link to= "/">Home</Link>
@@ -44,12 +44,16 @@ const Title = () => (
               <li className="px-6">  
             <Link to= "/Instamart">Instamart</Link>
            </li>
-           <li className="px-6">  
-            <Link to= "/Cart">Cart- {cartItems.length} items</Link>
-           </li>
+
+           <Link to="/cart">
+            <li className="px-6" data-testid="cart">
+              Cart- {cartItems.length} items
+            </li>
+            </Link>
+
           </ul>
         </div>
-        <h1>{isOnline ? " ✅" : " 🥲 => 🔴"}</h1>
+        <h1 data-testid="online-status" >{isOnline ? "✅" : " 🥲 => 🔴"}</h1>
 
         <span className="p-10 font-bold text-red-900">{user.name}</span>
 

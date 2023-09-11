@@ -15,7 +15,7 @@ const RestaurantCard = ({
     const {user} = useContext(UserContext);
 
   return (
-    <div className="w-56 p-2 m-2 bg-green-300 shadow-md">
+    <div className="w-56 p-2 m-2 bg-green-300 shadow-md hover:shadow-xl">
       <img src={IMG_CDN_URL + cloudinaryImageId} />
       <h2 className="font-bold">{name}</h2>
       <h3>{cuisines.join(", ")}</h3>

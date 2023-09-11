@@ -89,7 +89,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button
-          className="m-4 bg-green-600 hover:bg-green-500 rounded-md"
+          className=" m-4 p-2 text-sm bg-green-600 hover:bg-green-500 rounded-md"
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allRestaurants);
