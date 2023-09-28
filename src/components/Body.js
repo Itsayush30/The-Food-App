@@ -6,6 +6,8 @@ import { useOutlet } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { filterData } from "../utils/helper";
 import UserContext from "../utils/UserContext";
+import { Link } from "react-router-dom";
+import Offline from '../Images/offline.png'
 
 
 // Body Component for body section: It contain all restaurant cards
@@ -70,8 +72,10 @@ const Body = () => {
   };
 
     const isOnline = useOnline();
-    if(!isOnline){
-      return <h1>Check Internet Connection!!!</h1>;
+    if (!isOnline) {
+      return (
+        <img src={Offline} alt="Offline" />
+      );
     }
 
   // if allRestaurants is empty don't render restaurants cards
@@ -79,11 +83,11 @@ const Body = () => {
 
   return (
     <>
-      <div className="w-24 flex m-6 bg-green-200">
+      <div className="ml-4">
         <input
           type="text"
           className="search-input"
-          placeholder="Search a restaurant you want..."
+          placeholder="Hungry?"
           value={searchText}
           // update the state variable searchText when we typing in input box
           onChange={(e) => setSearchText(e.target.value)}
@@ -120,7 +124,12 @@ const Body = () => {
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
           {filteredRestaurants.map((restaurant) => {
             return (
-              <RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />
+              <Link
+              to={"/restaurant/" + restaurant?.info?.id}
+              key={restaurant?.info?.id}
+            >
+              <RestaurantCard {...restaurant?.info} />
+            </Link>
             );
           })}
         </div>
