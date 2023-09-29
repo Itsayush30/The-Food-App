@@ -329,3 +329,83 @@ a {
 }
 /*Animation to Shimmer Component Card and Menu card End*/
 
+
+/* About us page CSS Start */
+.about-container-main {
+  min-height: 87vh;
+}
+
+.about-profile-container {
+  margin: 100px auto 0px;
+  text-align: center;
+}
+
+.about-profile-button {
+  background-color: var(--orange);
+  color: var(--light-white-text);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: large;
+  font-weight: bold;
+}
+
+.about-profile-button:hover {
+  background-color: var(--dark-orange);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 25px 10px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-container .about-left {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  overflow-y: hidden;
+}
+
+.about-container .about-left h1 {
+  font-size: 70px;
+  color: var(--light-text-color);
+}
+
+.about-container .about-left h1 span {
+  background-color: var(--orange);
+  padding: 0 10px;
+  border-radius: 15px;
+  color: var(--light-white-text);
+}
+
+.about-container .about-left h4 {
+  font-size: 25px;
+  margin-top: 10px;
+  font-style: italic;
+  color: var(--light-text-color);
+}
+
+.about-container .about-left h4 span {
+  color: var(--dark-orange);
+}
+
+.about-container .about-right {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.about-container .about-right img {
+  width: 500px;
+}
+
+/* About us page CSS End */
