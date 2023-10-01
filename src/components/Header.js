@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import { FaShoppingCart } from 'react-icons/fa'; // Import the cart icon
 import logo from "../Images/logo.png"
 
 const Title = () => (
@@ -45,8 +46,8 @@ const Header = () => {
           </li>
 
           <Link to="/cart">
-            <li className="px-6" data-testid="cart">
-              Cart- {cartItems.length} items
+            <li className="px-6 flex items-center" data-testid="cart">
+              <FaShoppingCart className="mr-1" /> Cart ( {cartItems.length} )
             </li>
           </Link>
         </ul>

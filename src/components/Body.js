@@ -2,7 +2,6 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState, useContext } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
 import { swiggy_api_URL } from "../contants";
-import { useOutlet } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { filterData } from "../utils/helper";
 import UserContext from "../utils/UserContext";
@@ -17,7 +16,6 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const {user, setUser} = useContext(UserContext);
 
   // use useEffect for one time call getRestaurants using empty dependency array
   useEffect(() => {
@@ -86,7 +84,7 @@ const Body = () => {
       <div className="ml-4">
         <input
           type="text"
-          className="search-input"
+          className="w-80"
           placeholder="Hungry?"
           value={searchText}
           // update the state variable searchText when we typing in input box
@@ -101,18 +99,7 @@ const Body = () => {
         >
           Search
         </button>
-        <input value={user.name} onChange= {
-          e => setUser({
-            ...user,
-            name: e.target.value,
-          })
-        }></input>
-         <input value={user.email} onChange= {
-          e => setUser({
-            ...user,
-            email: e.target.value,
-          })
-        }></input>
+      
       </div>
       {errorMessage && <div className="error-container">{errorMessage}</div>}
 
