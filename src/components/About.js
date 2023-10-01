@@ -18,7 +18,9 @@ const About = () => {
                 Hide My Profile
               </button>
             </Link>
-            <Outlet />
+            <div className="m-5 border shadow-md ">
+            <Outlet/>
+            </div>
           </>
         ) : (
           <Link to={"profile"}>
