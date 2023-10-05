@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import ImageInsta from "../Images/FooterVisual.webp"
 
 const Section = ({ title, description, isVisible, setisVisible }) => {
   return (
-    <div className=" border border-black m-2 p-2">
+    <div className=" border border-green-700 rounded-lg m-2 p-2 bg-green-300">
       <h1 className="font-bold">{title}</h1>
       {isVisible && <p>{description}</p>}
 
       {isVisible ? (
         <button
-          className="cursor-pointer underline"
+          className="cursor-pointerc text-sm p-1 rounded-lg text-green-600"
           onClick={() => setIsvisibleSection()} // why no error of undefined setIsvisiblesection? // maybe because it is inside setisvisible and it is paased as props
         >
           Hide
         </button>
       ) : (
         <button
-          className="cursor-pointer underline"
+          className="cursor-pointerc text-sm p-1 rounded-lg text-green-600"
           onClick={() => setisVisible()}
         >
           show
@@ -30,9 +31,17 @@ const InstaMart = () => {
 
   return (
     <div>
-      <h1 className="font-bold bg-green-600 w-28 my-2 ml-2 rounded-md flex justify-center">
-        Instamart
-      </h1>
+       
+       <div className="flex justify-center">
+        <p className=" flex m-20 p-5 items-center rounded-3xl shadow-lg bg-orange-400 text-slate-200 text-7xl h-56 font-semibold">InstaMart Coming Soon!!!</p>
+     
+      <img
+      className="h-[40rem]"
+      alt="ImageInsta"
+      src={ImageInsta}
+    />
+     </div>
+     
       <Section
         title={"About Instamart"}
         description={
@@ -49,6 +58,7 @@ const InstaMart = () => {
         isVisible={visibleSection == "History"}
         setisVisible={() => setIsvisibleSection("History")}
       />
+    
     </div>
   );
 };

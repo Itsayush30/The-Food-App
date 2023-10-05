@@ -80,7 +80,7 @@ const Body = () => {
   if (!allRestaurants) return null;
 
   return (
-    <>
+    < >
       <div className="ml-4">
         <input
           type="text"
